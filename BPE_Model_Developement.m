@@ -124,7 +124,8 @@ Y_test=Y_d_Nor_test(:,end);
 Y_train=Y_d_Nor_train(:,end);
 
 % Apply 5-fold cross-validated LASSO feature selection technique on the Training set
-[B,FitInfo] = lasso(X_train,Y_train,'cv',5);
+[B,FitInfo] = lassoglm(X_train,Y_train,'cv',5, 'binomial);
+% [B,FitInfo] = lasso(X_train,Y_train,'cv',5);
 
 C=(abs(B)>0);
 CCC=sum(C);
